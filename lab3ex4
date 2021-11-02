@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<math.h>
+int n;
+int factorial=1;
+ void ReadN();
+ void Calculate();
+ void PrintN();
+
+int main()
+{
+    ReadN();
+    Calculate();
+    PrintN();
+
+    return 0;
+}
+
+    void ReadN()
+    {
+            printf("Give a number for the factorial");
+            scanf("%d", &n);
+    }
+
+    void Calculate()
+    {
+        for(int i=1;i<=n;i++)
+            {
+                factorial = i*factorial;
+            }
+    }
+
+    void PrintN()
+    {
+        printf("%d", factorial);
+    }
+
