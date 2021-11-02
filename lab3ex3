@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int n,factorial;
+   printf("Give a number for the factorial");
+   scanf("%d", &n);
+    factorial=1;
+
+    for(int i=1;i<=n;i++)
+    {
+        factorial = i*factorial;
+
+    }
+
+    printf("%d", factorial);
+
+
+
+    return 0;
+}
