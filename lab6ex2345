@@ -1,0 +1,104 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#define n 10
+
+void fun_rand(double a[n])
+{
+	for (int i = 0; i < n; i++)
+	{
+		a[i]= rand()/(double)RAND_MAX;
+		printf("%lf \n",a[i]);
+	}
+
+}
+double average(double a[n])
+{
+	double av = 0;
+	for (int i = 0; i < n; i++)
+	{
+		av = av + a[i];
+	}
+	av = av /(double) n;
+	return av;
+}
+
+double std_var(double a[n], double *av)
+{
+	double g=0;
+	for (int i = 0; i < n; i++)
+	{
+		g = g + (a[i] - *av)*(a[i] - *av);
+	}
+	g = g / n;
+	g = sqrt(g);
+	return g;
+}
+
+double _maximum(double a[n],int *index)
+{
+	double maxx = a[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i] > maxx)
+		{
+			maxx = a[i];
+			*index = i;
+		}
+	}
+	return maxx;
+}
+
+double _minimum(double a[n], int* index2)
+{
+	double minn = a[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (a[i] < minn)
+		{
+			minn = a[i];
+			*index2 = i;
+		}
+	}
+	return minn;
+}
+
+void reverse(double a[n])
+{
+	double temp;
+	for (int i = 0; i < 4; i++)
+	{
+		temp = a[n - i];
+		a[n - i] = a[i];
+		a[i] = temp;
+	}
+}
+
+void printt(double a[n])
+{
+	for (int i = 0; i < n; i++)
+	{
+		printf("%lf \n", a[i]);
+	}
+}
+
+int main()
+{
+	int index=0;
+	int index2=0;
+	double av;
+	double a[n];
+	fun_rand(a);
+	av = average(a);
+	printf("The average value of the numbers is %lf\n", average(a));
+	printf("The standard variation is %lf\n", std_var(a, &av));
+	printf("The maximum value in the array is %lf\n", _maximum(a, &index));
+	printf("The index number for maximum value in the array is %d\n", index);
+	printf("The minimum value in the array is %lf\n", _minimum(a, &index2));
+	printf("The index number for minimum value in the array is %d\n", index2);
+	reverse(a);
+	//printf("New order of the table a is: \n");
+	printt(a);
+
+	return 0;
+}
