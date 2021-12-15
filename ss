@@ -33,10 +33,10 @@ int main()
 	do
 	{
 		double angle = ((double)rand()) / (double)RAND_MAX * 2 * PI;
-		double r = radius * sqrt((double)rand() / (double)RAND_MAX);
+		double m = radius * sqrt((double)rand() / (double)RAND_MAX);
 
-		x = xcentr +r * cos(angle);
-		y = ycentr + r * sin(angle);
+		x = xcentr +m * cos(angle);
+		y = ycentr + m * sin(angle);
 
 		if ((x <= xmax) && (x >= xmin) && (y >= ymin) && (y <= ymax))
 		{
